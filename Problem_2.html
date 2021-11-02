@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <div id="container">
+
+      Select Our country
+      <input type="text" list="country" />
+
+    </div>
+
+
+
+    <script type="text/javascript">
+
+      var addParent = document.getElementById("container");
+
+      let arr = [{ India: "Bihar" }, { UK: "London" }, { USA: "NewYork" }];
+      let n = arr.length;
+
+      // I'm creating dynamically tag named as datalist after that I append at to the container
+
+      var createChild=document.createElement("datalist");
+      createChild.setAttribute("id","country");        // set attribute
+      addParent.appendChild(createChild);               // append into container
+
+
+      // We have array of objects so first we iterate over an array of object and each object we just set the attribute and append it.
+
+      for (var i = 0; i < n; i++) {
+        for (key in arr[i]) {
+          var option = document.createElement("option");
+          option.setAttribute("data-value", arr[i][key]);       
+          option.text = key;                                   // labelling option tag using key
+          createChild.appendChild(option);                   // appended 
+        }
+      }
+
+    </script>
+  </body>
+</html>
